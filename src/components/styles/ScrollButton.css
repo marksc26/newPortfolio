@@ -1,0 +1,16 @@
+.scrollY{
+    position: fixed;
+    bottom: 30px;
+    right: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #02016c;
+    background-color: #eef4ed;
+    padding: 2px;
+}
+
+.scrollY i{
+    font-size: 30px;
+    padding: 3px;
+    color: #02016c;
+}
