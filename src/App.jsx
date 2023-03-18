@@ -55,6 +55,8 @@ function App() {
     localStorage.setItem("darkMode", JSON.stringify(!darkMode))
     setDarkMode(!darkMode)
   }
+
+  
  
 
   return (
@@ -81,6 +83,7 @@ function App() {
               
             </ul>
           </div>
+          
            
         </div>
 
@@ -144,8 +147,8 @@ function App() {
       
 
       </section>
-      <section id='about' className={!darkMode ? 'about-section' : 'about-section-dark'}>
-        <div>
+      <section id='about' className='about-section'>
+        <div className={!darkMode ? 'about': 'about-dark'}>
           <h3>About</h3>
           <p className=''>Mi nombre es Marcos Sigala, me especializo en el desarrollo de páginas web Front-End. Soy un apasionado de la tecnología y me encataria formar parte de tu equipo o de tus proyectos, contactame.</p>
         </div>
@@ -385,7 +388,7 @@ function App() {
                    <div>
                         <i class='bx bx-envelope'></i>
                         <span>
-                             <a href="mailto:marcos.webdev92@gmail.com">marcos.webdev92@gmail.com</a>
+                             <a className={!darkMode ? "email" : "email-dark"} href="mailto:marcos.webdev92@gmail.com">marcos.webdev92@gmail.com</a>
                         </span>
                     </div>
 
@@ -433,7 +436,7 @@ function App() {
         
       </footer>
       {
-        scrollY > 300 && <ScrollButton/>
+        scrollY > 300 && !menu && <ScrollButton/>
       }
 
      
