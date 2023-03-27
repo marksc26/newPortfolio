@@ -68,7 +68,7 @@ function App() {
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID
 
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY)
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
       .then(res => {
         console.log(res.text)
         reset()
