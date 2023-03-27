@@ -34,7 +34,7 @@ hr{
 
 
 ::-webkit-scrollbar{
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track{
@@ -1115,6 +1115,11 @@ margin-bottom: 20px;
   background-color: #0404a4;
   color: #eef4ed;
 
+}
+
+.errors{
+  font-size: 13px;
+  color: rgb(231, 0, 0);
 }
 
 /*---------FOOTER-DARK-----*/

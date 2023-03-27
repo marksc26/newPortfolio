@@ -15,6 +15,8 @@ import iconLight from '../src/assets/ICONO_CLR-01.png'
 import perfil from '../src/assets/images/perfil.png'
 import { useEffect, useState } from 'react'
 import ScrollButton from './components/ScrollButton'
+import emailjs from '@emailjs/browser'
+import { useForm } from 'react-hook-form'
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   )
+ const {handleSubmit, register, reset, formState:{errors}} =  useForm()
 
   const [scrollY, setScrollY] = useState(0)
 
@@ -56,7 +59,24 @@ function App() {
     setDarkMode(!darkMode)
   }
 
-  
+
+
+  const submitForm = (data) => {
+
+    const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY
+    const SERVICE_ID = import.meta.env.VITE_SERVICE_ID
+    const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID
+
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY)
+      .then(res => {
+        console.log(res.text)
+        reset()
+      })
+      .catch(err => console.log(err))
+  }
+
+  const regularExpresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
  
 
   return (
@@ -138,7 +158,8 @@ function App() {
              <h3 className='title2'>para el desarrollo de aplicaciones web fullstack</h3>
           </div>
           <div className={!darkMode ? 'home-button' : 'home-button-dark'}>
-            <button>Descarga CV</button>
+            <a href="https://drive.google.com/file/d/1onvUpP3G_5DKopM9lKW5RY0BejVee2od/view?usp=share_link" target='_blank'><button>Descarga CV</button></a>
+            
           </div>
         </div>
           
@@ -176,15 +197,15 @@ function App() {
               <h3>React</h3>
             </div>
             <div className={!darkMode ? 'logo-container' : 'logo-container-dark'}>
-              <i class='bx bxl-tailwind-css'></i>
+              <i className='bx bxl-tailwind-css'></i>
               <h3>Tailwindcss</h3>
             </div>
             <div className={!darkMode ? 'logo-container' : 'logo-container-dark'}>
-            <i class='bx bxl-nodejs'></i>
+            <i className='bx bxl-nodejs'></i>
               <h3>Node Js</h3>
             </div>
             <div className={!darkMode ? 'logo-container' : 'logo-container-dark'}>
-              <i class='bx bxl-postgresql'></i>
+              <i className='bx bxl-postgresql'></i>
               <h3>PostgreSQL</h3>
             </div>
 
@@ -386,34 +407,48 @@ function App() {
                   </div>
 
                    <div>
-                        <i class='bx bx-envelope'></i>
+                        <i className='bx bx-envelope'></i>
                         <span>
                              <a className={!darkMode ? "email" : "email-dark"} href="mailto:marcos.webdev92@gmail.com">marcos.webdev92@gmail.com</a>
                         </span>
                     </div>
 
-                    <div class="contact__info-item">
-                          <i class='bx bx-map'></i>
+                    <div>
+                          <i className='bx bx-map'></i>
                           <span>Guadalajara, México</span>
                     </div>
 
           </address>
 
-          <form action="">
+          <form onSubmit={handleSubmit(submitForm)}>
             <div className='contact-inputs'>
               <label htmlFor="">Nombre</label>
-              <input type="text" />
+              <input type="text" name='name' {...register('name',{
+                required:"Name is required",
+              })} />
+              {
+                errors.name && <p className='errors'>{errors.name.message}</p>
+              }
             </div>
             <div className='contact-inputs'>
               <label htmlFor="">Correo</label>
-              <input type="email" />
+              <input type="email" name='email' {...register("email", {
+                required: "Email is required",
+                pattern:{
+                  message:"Write a valid email",
+                  value: regularExpresion
+                }
+              })} />
+              {
+                errors.email && <p className='errors'>{errors.email.message}</p>
+              }
             </div>
             <div className='contact-inputs'>
               <label htmlFor="">Mensaje</label>
-              <textarea name="" id="" cols="30" rows="10"></textarea>
+              <textarea name="message" id="" cols="30" rows="10" {...register('message')}></textarea>
             </div>
             <div className={!darkMode ? 'contact-button' : 'contact-button-dark'}>
-              <button onClick={(e) => {e.preventDefault()}}>Enviar</button>
+              <button type='submit'>Enviar</button>
             </div>
             
           </form>
