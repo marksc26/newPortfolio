@@ -25,7 +25,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   )
- const {handleSubmit, register, reset, formState:{errors}} =  useForm()
+ const {handleSubmit, register, reset, formState:{errors, values}} =  useForm()
 
   const [scrollY, setScrollY] = useState(0)
 
@@ -420,7 +420,7 @@ function App() {
 
           </address>
 
-          <form onSubmit={handleSubmit(submitForm)}>
+          <form onSubmit={handleSubmit(submitForm)} data-netlify='true'>
             <div className='contact-inputs'>
               <label htmlFor="">Nombre</label>
               <input type="text" name='name' {...register('name',{
