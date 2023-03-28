@@ -13,7 +13,7 @@ import logoLight from '../src/assets/LOGO_CLR.png'
 import iconDark from '../src/assets/ICONO_BN-01.png'
 import iconLight from '../src/assets/ICONO_CLR-01.png'
 import perfil from '../src/assets/images/perfil.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ScrollButton from './components/ScrollButton'
 import emailjs from '@emailjs/browser'
 import { useForm } from 'react-hook-form'
@@ -25,7 +25,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   )
- const {handleSubmit, register, reset, formState:{errors, values}} =  useForm()
+ const {handleSubmit, register, reset} =  useForm()
 
   const [scrollY, setScrollY] = useState(0)
 
@@ -59,24 +59,22 @@ function App() {
     setDarkMode(!darkMode)
   }
 
+    const formRef = useRef()
 
-
-  const submitForm = (data) => {
+    const submitForm = () => {
 
     const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID
 
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then(res => {
         console.log(res.text)
         reset()
       })
       .catch(err => console.log(err))
   }
-
-  const regularExpresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
  
 
   return (
@@ -420,28 +418,14 @@ function App() {
 
           </address>
 
-          <form onSubmit={handleSubmit(submitForm)} data-netlify='true'>
+          <form ref={formRef} onSubmit={handleSubmit(submitForm)}>
             <div className='contact-inputs'>
               <label htmlFor="">Nombre</label>
-              <input type="text" name='name' {...register('name',{
-                required:"Name is required",
-              })} />
-              {
-                errors.name && <p className='errors'>{errors.name.message}</p>
-              }
+              <input type="text" name='name' {...register('name')}/>
             </div>
             <div className='contact-inputs'>
               <label htmlFor="">Correo</label>
-              <input type="email" name='email' {...register("email", {
-                required: "Email is required",
-                pattern:{
-                  message:"Write a valid email",
-                  value: regularExpresion
-                }
-              })} />
-              {
-                errors.email && <p className='errors'>{errors.email.message}</p>
-              }
+              <input type="email" name='email' {...register('email')}/>
             </div>
             <div className='contact-inputs'>
               <label htmlFor="">Mensaje</label>
