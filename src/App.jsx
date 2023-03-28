@@ -17,6 +17,7 @@ import { useEffect, useRef, useState } from 'react'
 import ScrollButton from './components/ScrollButton'
 import emailjs from '@emailjs/browser'
 import { useForm } from 'react-hook-form'
+import Modal from './components/Modal'
 
 
 function App() {
@@ -25,9 +26,11 @@ function App() {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   )
- const {handleSubmit, register, reset} =  useForm()
-
   const [scrollY, setScrollY] = useState(0)
+  const [showModal, setShowModal] = useState(false)
+
+  const {handleSubmit, register, reset} =  useForm()
+
 
   useEffect(() =>{
     function handleScroll(){
@@ -59,18 +62,20 @@ function App() {
     setDarkMode(!darkMode)
   }
 
+
     const formRef = useRef()
+
 
     const submitForm = () => {
 
     const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID
-
-
+    
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then(res => {
         console.log(res.text)
+        setShowModal(true)
         reset()
       })
       .catch(err => console.log(err))
@@ -436,6 +441,11 @@ function App() {
             </div>
             
           </form>
+          {
+            showModal && (<Modal setShowModal={setShowModal}/>)
+          }
+
+          
         </div>
       </section>
       <hr />
