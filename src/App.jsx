@@ -162,7 +162,7 @@ function App() {
              <h3 className='title2'>para el desarrollo de aplicaciones web fullstack</h3>
           </div>
           <div className={!darkMode ? 'home-button' : 'home-button-dark'}>
-            <a href="https://drive.google.com/file/d/1onvUpP3G_5DKopM9lKW5RY0BejVee2od/view?usp=share_link" target='_blank'><button>Descarga CV</button></a>
+            <a href="https://drive.google.com/file/d/1Zn_5ZFy2rzNmX-qKGvQyDfqPo59OQsqn/view?usp=share_link" target='_blank'><button>Descarga CV</button></a>
             
           </div>
         </div>
@@ -174,8 +174,8 @@ function App() {
       </section>
       <section id='about' className='about-section'>
         <div className={!darkMode ? 'about': 'about-dark'}>
-          <h3>About</h3>
-          <p className=''>Mi nombre es Marcos Sigala, me especializo en el desarrollo de páginas web Front-End. Soy un apasionado de la tecnología y me encataria formar parte de tu equipo o de tus proyectos, contactame.</p>
+          <h3>About Me</h3>
+          <p className=''>Soy Marcos Sigala, me especializo en el desarrollo de páginas web Front-End. Soy un apasionado de la tecnología y me encantaría formar parte de tu equipo o de tus proyectos, contáctame.</p>
         </div>
         
 
