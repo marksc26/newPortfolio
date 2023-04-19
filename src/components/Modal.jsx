@@ -14,7 +14,7 @@ const Modal = ({setShowModal}) => {
             <h3>Thank You!</h3>
             <p>your form submission has been received!</p>
             <div className='button-container'>
-               <button  onClick={closeModal}>Cerrar</button>  
+               <button  onClick={closeModal}>Close</button>  
             </div>
              
         </div>

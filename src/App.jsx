@@ -8,6 +8,7 @@ import ecommerce from '../src/assets/images/ecommerce.jpg'
 import pokedex from '../src/assets/images/pokedexapp.jpg'
 import countries from '../src/assets/images/countriesapp.jpg'
 import sunnyside from '../src/assets/images/sunnyside.jpg'
+import space from '../src/assets/images/space-tourism.jpg'
 import logoDark from '../src/assets/LOGO_BNC.png'
 import logoLight from '../src/assets/LOGO_CLR.png'
 import iconDark from '../src/assets/ICONO_BN-01.png'
@@ -222,6 +223,24 @@ function App() {
           <h3 className='projects-title'>Projects</h3>
         </div>
         <div className='projects-container'>
+
+        <div>
+          <div className='image-container'>
+            <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={space} alt="" />
+          </div>
+          
+        <div className='info-container'>
+          <h3>Space Tourism</h3>
+          <div className='links-container'>
+          <button>
+            <a href="https://space-tourism-app-msc.netlify.app" target='_blank'><i className='bx bx-link-alt'></i></a>
+            </button>
+            <button>
+              <a href="https://github.com/marksc26/Space-Tourism-App.git" target='_blank'><i className='bx bxl-github'></i></a>
+            </button>
+          </div>
+        </div>
+        </div>
  
         <div>
           <div className='image-container'>
