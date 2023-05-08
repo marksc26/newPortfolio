@@ -87,7 +87,7 @@ function App() {
   }
 
   useEffect(() => {
-    AOS.init({duration: 2100, offset:200, anchorPlacement:'center-bottom'})
+    AOS.init({duration: 1500, offset:200, anchorPlacement:'center-bottom',delay:400})
   },[])
   
 
@@ -227,13 +227,13 @@ function App() {
         </div>
       </section>  
 
-      <section id='projects' className='projects' >
-        <div data-aos='fade-up'>
+      <section id='projects' className='projects'data-aos='fade-up' >
+        <div >
           <h3 className='projects-title'>Projects</h3>
         </div>
         <div className='projects-container'>
 
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={space} alt="" />
           </div>
@@ -251,7 +251,7 @@ function App() {
         </div>
         </div>
  
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={sunnyside} alt="" />
           </div>
@@ -269,7 +269,7 @@ function App() {
         </div>
         </div>
           
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={countries} alt="" />
           </div>
@@ -289,7 +289,7 @@ function App() {
         </div>
         </div>
         
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={pokedex} alt="" />
           </div>
@@ -309,7 +309,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={ecommerce} alt="" />
 
@@ -328,7 +328,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
               <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={crud} alt="" />
           </div>
@@ -347,7 +347,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'}src={rickmorty} alt="" />
           </div>
@@ -364,7 +364,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={qatar} alt="" />
 
@@ -382,7 +382,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={news} alt="" />
           </div>
@@ -400,7 +400,7 @@ function App() {
         </div>
         </div> 
         
-        <div data-aos='fade-up'>
+        <div>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={weather} alt="" />
 
@@ -420,7 +420,7 @@ function App() {
         </div>
         </div>
 
-        <div data-aos='fade-up'>
+        <div>
          <div className='image-container'>
           <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={quotes} alt="" />
           </div>
@@ -446,7 +446,7 @@ function App() {
 
         <div className={!darkMode ? 'contact-container': 'contact-container-dark'}>
           <div className='contact-title'>
-            <h3 data-aos='fade-up'>Contact</h3>
+            <h3>Contact</h3>
           </div>
           <address className='info-contact'>
                   <div>
