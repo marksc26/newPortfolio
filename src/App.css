@@ -91,6 +91,7 @@ hr{
   top: 0;
   left: 0;
   right: 0;
+  z-index: 999999;
 }
 .navbar-list{
   display: flex;
@@ -163,6 +164,8 @@ hr{
 }
 
 /*-----------HOME----------*/
+
+
 .home-container{
   display: flex;
   flex-direction: row-reverse;
@@ -627,7 +630,7 @@ margin-bottom: 20px;
     height: 100%;
     padding: 25px;
     transition: .5s;
-
+    z-index: 999999;
 
     
   }
@@ -870,6 +873,7 @@ margin-bottom: 20px;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 999999;
 }
 
 .navbar-listDark{
@@ -984,6 +988,8 @@ margin-bottom: 20px;
   top: 0;
   left: 0;
   right: 0;
+
+  z-index: 999999;
 }
 
 .navbar-listDark{

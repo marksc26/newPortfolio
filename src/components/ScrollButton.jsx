@@ -6,7 +6,7 @@ const ScrollButton = () => {
     <div>
         <a href="#home">
             <button className='scrollY'>
-                <i class='bx bxs-up-arrow-circle'></i>
+                <i className='bx bxs-up-arrow-circle'></i>
             </button> 
         </a>
 

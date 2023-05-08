@@ -9,6 +9,7 @@ import pokedex from '../src/assets/images/pokedexapp.jpg'
 import countries from '../src/assets/images/countriesapp.jpg'
 import sunnyside from '../src/assets/images/sunnyside.jpg'
 import space from '../src/assets/images/space-tourism.jpg'
+import news from '../src/assets/images/news-page.jpg'
 import logoDark from '../src/assets/LOGO_BNC.png'
 import logoLight from '../src/assets/LOGO_CLR.png'
 import iconDark from '../src/assets/ICONO_BN-01.png'
@@ -19,6 +20,9 @@ import ScrollButton from './components/ScrollButton'
 import emailjs from '@emailjs/browser'
 import { useForm } from 'react-hook-form'
 import Modal from './components/Modal'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 
 
 function App() {
@@ -81,7 +85,12 @@ function App() {
       })
       .catch(err => console.log(err))
   }
- 
+
+  useEffect(() => {
+    AOS.init({duration: 1500})
+  },[])
+  
+
 
   return (
     <main id='home' className={!darkMode ? "App" : "dark-App"}>
@@ -146,13 +155,13 @@ function App() {
      
         
       </header>
-      <section className='home'>
+      <section className='home'  >
         <div className='home-container'> 
           
-         <div className='image-home'>
+         <div className='image-home'data-aos='fade-left'>
           <img src={perfil} className='perfil' alt="" />
         </div>
-        <div className='info-home'>
+        <div className='info-home' data-aos='fade-right'>
           <div className='home-intro'>
             <h1>Desarrolador Web</h1>
             <h1><span className={!darkMode ? 'home-name' : "home-name-dark"}>Marcos Sigala</span></h1>
@@ -172,7 +181,7 @@ function App() {
       
 
       </section>
-      <section id='about' className='about-section'>
+      <section id='about' className='about-section' data-aos='fade-up'>
         <div className={!darkMode ? 'about': 'about-dark'}>
           <h3>About Me</h3>
           <p className=''>Soy Marcos Sigala, me especializo en el desarrollo de páginas web Front-End. Soy un apasionado de la tecnología y me encantaría formar parte de tu equipo o de tus proyectos, contáctame.</p>
@@ -180,7 +189,7 @@ function App() {
         
 
       </section>
-      <section id='skills' className='skills'>
+      <section id='skills' className='skills' data-aos='fade-up'>
         <div className='skills-container'>
           <h3 className='skills-title'>Skills</h3>
           <div className='logo-skills'>
@@ -218,13 +227,13 @@ function App() {
         </div>
       </section>  
 
-      <section id='projects' className='projects'>
-        <div>
+      <section id='projects' className='projects' >
+        <div data-aos='fade-up'>
           <h3 className='projects-title'>Projects</h3>
         </div>
         <div className='projects-container'>
 
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={space} alt="" />
           </div>
@@ -242,7 +251,7 @@ function App() {
         </div>
         </div>
  
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={sunnyside} alt="" />
           </div>
@@ -260,7 +269,7 @@ function App() {
         </div>
         </div>
           
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={countries} alt="" />
           </div>
@@ -280,7 +289,7 @@ function App() {
         </div>
         </div>
         
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={pokedex} alt="" />
           </div>
@@ -300,7 +309,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={ecommerce} alt="" />
 
@@ -319,7 +328,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
               <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={crud} alt="" />
           </div>
@@ -338,7 +347,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'}src={rickmorty} alt="" />
           </div>
@@ -355,7 +364,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={qatar} alt="" />
 
@@ -373,7 +382,26 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
+
+          <div className='image-container'>
+            <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={news} alt="" />
+          </div>
+          <div className='info-container'>
+          <h3>News-Page</h3>
+          <div className='links-container'>
+          <button>
+            <a href="https://news-homepage-msc.netlify.app/" target='_blank'><i className='bx bx-link-alt'></i></a>
+              
+            </button>
+            <button>
+              <a href="https://github.com/marksc26/News-Homepage.git" target='_blank'><i className='bx bxl-github'></i></a>
+            </button>
+          </div>
+        </div>
+        </div> 
+        
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={weather} alt="" />
 
@@ -392,7 +420,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
          <div className='image-container'>
           <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={quotes} alt="" />
 
@@ -416,7 +444,7 @@ function App() {
         
 
       </section>
-      <section id='contact' className='contact'>
+      <section id='contact' className='contact' data-aos='fade-up'>
 
         <div className={!darkMode ? 'contact-container': 'contact-container-dark'}>
           <div className='contact-title'>
@@ -486,7 +514,7 @@ function App() {
       {
         scrollY > 300 && !menu && <ScrollButton/>
       }
-
+    
      
     </main>
   )
