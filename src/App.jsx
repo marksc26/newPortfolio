@@ -88,10 +88,8 @@ function App() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1500, 
-      offset:300,
-      anchorPlacement:'center-bottom',
-      delay:400,
+      duration: 1200, 
+      delay:200,
       disableMutationObserver:true
       })
 
@@ -237,9 +235,9 @@ function App() {
         </div>
       </section>  
 
-      <section id='projects' className='projects'>
+      <section id='projects' className='projects'data-aos='fade-up'>
         <div >
-          <h3 className='projects-title' data-aos='fade-up'>Projects</h3>
+          <h3 className='projects-title' >Projects</h3>
         </div>
         <div className='projects-container'>
 
@@ -452,7 +450,7 @@ function App() {
         
 
       </section>
-      <section id='contact' className='contact' data-aos='fade-up' data-aos-delay='800'>
+      <section id='contact' className='contact' data-aos='fade-up'>
 
         <div className={!darkMode ? 'contact-container': 'contact-container-dark'}>
           <div className='contact-title'>
