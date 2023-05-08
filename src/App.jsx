@@ -452,7 +452,7 @@ function App() {
         
 
       </section>
-      <section id='contact' className='contact' data-aos='fade-up'>
+      <section id='contact' className='contact' data-aos='fade-up' data-aos-delay='800'>
 
         <div className={!darkMode ? 'contact-container': 'contact-container-dark'}>
           <div className='contact-title'>
