@@ -89,10 +89,11 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 1500, 
+      offset:200,
       anchorPlacement:'center-bottom',
       delay:400,
-      startEvent:'DOMContentLoaded',
-      delay:200
+      disableMutationObserver:true
+
     })
   },[])
   
