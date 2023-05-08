@@ -87,15 +87,17 @@ function App() {
   }
 
   useEffect(() => {
-    AOS.init({
+   
+
+      window.addEventListener('load', () =>{ 
+        AOS.init({
       duration: 1200, 
       delay:200,
-      disableMutationObserver:true
+      disableMutationObserver:true,
+      offset:200
       })
-
-      window.addEventListener('load', () =>{
-        AOS.refresh()
     })
+
   },[])
   
 
