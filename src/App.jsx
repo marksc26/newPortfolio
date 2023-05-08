@@ -88,10 +88,10 @@ function App() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1500, 
-      offset:200,
+      duration: 1800, 
+      offset:300,
       anchorPlacement:'center-bottom',
-      delay:400,
+      delay:500,
       disableMutationObserver:true
 
     })
@@ -449,7 +449,7 @@ function App() {
         
 
       </section>
-      <section id='contact' className='contact' data-aos='fade-up' >
+      <section id='contact' className='contact' data-aos='fade-up' data-aos-delay='500' >
 
         <div className={!darkMode ? 'contact-container': 'contact-container-dark'}>
           <div className='contact-title'>
