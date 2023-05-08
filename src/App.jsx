@@ -87,7 +87,13 @@ function App() {
   }
 
   useEffect(() => {
-    AOS.init({duration: 1500, offset:200, anchorPlacement:'center-bottom',delay:400})
+    AOS.init({
+      duration: 1500, 
+      anchorPlacement:'center-bottom',
+      delay:400,
+      startEvent:'DOMContentLoaded',
+      delay:200
+    })
   },[])
   
 
@@ -155,7 +161,7 @@ function App() {
      
         
       </header>
-      <section className='home'  >
+      <section className='home'>
         <div className='home-container'> 
           
          <div className='image-home'data-aos='fade-left'>
@@ -227,13 +233,13 @@ function App() {
         </div>
       </section>  
 
-      <section id='projects' className='projects'data-aos='fade-up' >
+      <section id='projects' className='projects'>
         <div >
-          <h3 className='projects-title'>Projects</h3>
+          <h3 className='projects-title' data-aos='fade-up'>Projects</h3>
         </div>
         <div className='projects-container'>
 
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={space} alt="" />
           </div>
@@ -251,7 +257,7 @@ function App() {
         </div>
         </div>
  
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={sunnyside} alt="" />
           </div>
@@ -269,7 +275,7 @@ function App() {
         </div>
         </div>
           
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={countries} alt="" />
           </div>
@@ -289,7 +295,7 @@ function App() {
         </div>
         </div>
         
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={pokedex} alt="" />
           </div>
@@ -309,7 +315,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={ecommerce} alt="" />
 
@@ -328,7 +334,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
               <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={crud} alt="" />
           </div>
@@ -347,7 +353,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'}src={rickmorty} alt="" />
           </div>
@@ -364,7 +370,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={qatar} alt="" />
 
@@ -382,7 +388,7 @@ function App() {
           </div>
         </div>
         </div>
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={news} alt="" />
           </div>
@@ -400,7 +406,7 @@ function App() {
         </div>
         </div> 
         
-        <div>
+        <div data-aos='fade-up'>
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={weather} alt="" />
 
@@ -420,7 +426,7 @@ function App() {
         </div>
         </div>
 
-        <div>
+        <div data-aos='fade-up'>
          <div className='image-container'>
           <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={quotes} alt="" />
           </div>
