@@ -91,8 +91,8 @@ function App() {
 
       window.addEventListener('load', () =>{ 
         AOS.init({
-      duration: 1200, 
-      delay:200,
+      duration: 1300, 
+      delay:500,
       disableMutationObserver:true,
       offset:200
       })
