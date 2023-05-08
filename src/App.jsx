@@ -87,7 +87,7 @@ function App() {
   }
 
   useEffect(() => {
-    AOS.init({duration: 1500})
+    AOS.init({duration: 2500, anchorPlacement:'center-bottom'})
   },[])
   
 
@@ -383,7 +383,6 @@ function App() {
         </div>
         </div>
         <div data-aos='fade-up'>
-
           <div className='image-container'>
             <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={news} alt="" />
           </div>
@@ -420,10 +419,10 @@ function App() {
           </div>
         </div>
         </div>
+
         <div data-aos='fade-up'>
          <div className='image-container'>
           <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={quotes} alt="" />
-
           </div>
           
           <div className='info-container'>
@@ -435,7 +434,6 @@ function App() {
             </button>
             <button>
               <a href="https://github.com/marksc26/quotes.git" target='_blank'><i className='bx bxl-github'></i></a>
-              
             </button>
           </div>
         </div>
