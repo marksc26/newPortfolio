@@ -11,6 +11,7 @@ import sunnyside from '../src/assets/images/sunnyside.jpg'
 import space from '../src/assets/images/space-tourism.jpg'
 import news from '../src/assets/images/news-page.jpg'
 import msdb from '../src/assets/images/msdb.jpg'
+import room from '../src/assets/images/room.jpg'
 import logoDark from '../src/assets/LOGO_BNC.png'
 import logoLight from '../src/assets/LOGO_CLR.png'
 import iconDark from '../src/assets/ICONO_BN-01.png'
@@ -26,6 +27,7 @@ import 'aos/dist/aos.css'
 
 
 
+
 function App() {
 
   const [menu, setMenu] = useState(false)
@@ -34,8 +36,7 @@ function App() {
   )
   const [scrollY, setScrollY] = useState(0)
   const [showModal, setShowModal] = useState(false)
-
-  const { handleSubmit, register, reset } = useForm()
+  const { handleSubmit, register, reset, formState: { errors } } = useForm()
 
 
   useEffect(() => {
@@ -90,10 +91,9 @@ function App() {
   useEffect(() => {
 
     AOS.init({
-      duration: 900,
-      delay: 150,
-      disableMutationObserver: true,
-      offset: 150
+      duration: 1200,
+      delay: 400,
+      offset: 100
     })
 
   }, [])
@@ -171,15 +171,15 @@ function App() {
           </div>
           <div className='info-home' data-aos='fade-right'>
             <div className='home-intro'>
-              <h1>Desarrolador Web</h1>
+              <h1>Web Developer</h1>
               <h1><span className={!darkMode ? 'home-name' : "home-name-dark"}>Marcos Sigala</span></h1>
             </div>
             <div className='home-intro-two'>
-              <h3 className='title'>Me especializo en React js</h3>
-              <h3 className='title2'>para el desarrollo de aplicaciones web fullstack</h3>
+              <h3 className='title'>I specialize in React js</h3>
+              <h3 className='title2'>for full-stack web applications development.</h3>
             </div>
             <div className={!darkMode ? 'home-button' : 'home-button-dark'}>
-              <a href="https://drive.google.com/file/d/1Zn_5ZFy2rzNmX-qKGvQyDfqPo59OQsqn/view?usp=share_link" target='_blank'><button>Descarga CV</button></a>
+              <a href="https://drive.google.com/file/d/1Zn_5ZFy2rzNmX-qKGvQyDfqPo59OQsqn/view?usp=share_link" target='_blank'><button>Download CV</button></a>
 
             </div>
           </div>
@@ -192,7 +192,7 @@ function App() {
       <section id='about' className='about-section' data-aos='fade-up'>
         <div className={!darkMode ? 'about' : 'about-dark'}>
           <h3>About Me</h3>
-          <p className=''>Soy Marcos Sigala, me especializo en el desarrollo de páginas web Front-End. Soy un apasionado de la tecnología y me encantaría formar parte de tu equipo o de tus proyectos, contáctame.</p>
+          <p className=''>I'm Marcos Sigala, specializing in Front-End web development. I'm passionate about technology and would love to be part of your team or your projects. Please feel free to contact me.</p>
         </div>
 
 
@@ -219,7 +219,7 @@ function App() {
             </div>
             <div className={!darkMode ? 'logo-container' : 'logo-container-dark'}>
               <i className='bx bxl-tailwind-css'></i>
-              <h3>Tailwindcss</h3>
+              <h3>Tailwind</h3>
             </div>
             <div className={!darkMode ? 'logo-container' : 'logo-container-dark'}>
               <i className='bx bxl-nodejs'></i>
@@ -240,6 +240,23 @@ function App() {
           <h3 className='projects-title' >Projects</h3>
         </div>
         <div className='projects-container'>
+          <div data-aos='fade-up'>
+            <div className='image-container'>
+              <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={room} alt="" />
+            </div>
+
+            <div className='info-container'>
+              <h3>Room</h3>
+              <div className='links-container'>
+                <button>
+                  <a href="room-app-msc.netlify.app" target='_blank'><i className='bx bx-link-alt'></i></a>
+                </button>
+                <button>
+                  <a href="https://github.com/marksc26/Room-landing" target='_blank'><i className='bx bxl-github'></i></a>
+                </button>
+              </div>
+            </div>
+          </div>
 
           <div data-aos='fade-up'>
             <div className='image-container'>
@@ -474,47 +491,36 @@ function App() {
           <div className='contact-title'>
             <h3>Contact</h3>
           </div>
-          <address className='info-contact'>
-            <div>
-              <i className='bx bx-phone'></i>
-              <span>+55 332 588 7454</span>
-            </div>
 
-            <div>
-              <i className='bx bx-envelope'></i>
-              <span>
-                <a className={!darkMode ? "email" : "email-dark"} href="mailto:marcos.webdev92@gmail.com">marcos.webdev92@gmail.com</a>
-              </span>
-            </div>
-
-            <div>
-              <i className='bx bx-map'></i>
-              <span>Guadalajara, México</span>
-            </div>
-
-          </address>
 
           <form ref={formRef} onSubmit={handleSubmit(submitForm)}>
-            <div className='contact-inputs'>
-              <label htmlFor="">Nombre</label>
-              <input type="text" name='name' {...register('name')} />
+            <div className='error-message'>
+              {
+                (errors.name || errors.email || errors.message) && (<span>Please complete the requested information</span>)
+              }
+
             </div>
             <div className='contact-inputs'>
-              <label htmlFor="">Correo</label>
-              <input type="email" name='email' {...register('email')} />
+              <label htmlFor="">Name</label>
+              <input type="text" name='name' {...register('name', { required: true })} />
             </div>
             <div className='contact-inputs'>
-              <label htmlFor="">Mensaje</label>
-              <textarea name="message" id="" cols="30" rows="10" {...register('message')}></textarea>
+              <label htmlFor="">Email</label>
+              <input type="email" name='email' {...register('email', { required: true })} />
+            </div>
+            <div className='contact-inputs'>
+              <label htmlFor="">Message</label>
+              <textarea name="message" id="" cols="30" rows="10" {...register('message', { required: true })}></textarea>
             </div>
             <div className={!darkMode ? 'contact-button' : 'contact-button-dark'}>
-              <button type='submit'>Enviar</button>
+              <button type='submit'>Send</button>
             </div>
 
           </form>
           {
             showModal && (<Modal setShowModal={setShowModal} />)
           }
+
 
 
         </div>
@@ -538,7 +544,6 @@ function App() {
       {
         scrollY > 300 && !menu && <ScrollButton />
       }
-
 
     </main>
   )
