@@ -249,7 +249,7 @@ function App() {
               <h3>Room</h3>
               <div className='links-container'>
                 <button>
-                  <a href="room-app-msc.netlify.app" target='_blank'><i className='bx bx-link-alt'></i></a>
+                  <a href="https://room-msc.netlify.app" target='_blank'><i className='bx bx-link-alt'></i></a>
                 </button>
                 <button>
                   <a href="https://github.com/marksc26/Room-landing" target='_blank'><i className='bx bxl-github'></i></a>
