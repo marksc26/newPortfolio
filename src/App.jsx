@@ -13,6 +13,7 @@ import news from '../src/assets/images/news-page.jpg'
 import msdb from '../src/assets/images/msdb.jpg'
 import room from '../src/assets/images/room.jpg'
 import blogr from '../src/assets/images/blogr.jpg'
+import sneakers from '../src/assets/images/sneakers.jpg'
 import logoDark from '../src/assets/LOGO_BNC.png'
 import logoLight from '../src/assets/LOGO_CLR.png'
 import iconDark from '../src/assets/ICONO_BN-01.png'
@@ -241,6 +242,23 @@ function App() {
           <h3 className='projects-title' >Projects</h3>
         </div>
         <div className='projects-container'>
+          <div data-aos='fade-up'>
+            <div className='image-container'>
+              <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={sneakers} alt="" />
+            </div>
+
+            <div className='info-container'>
+              <h3>Sneakers product-page</h3>
+              <div className='links-container'>
+                <button>
+                  <a href="https://product-page-sneakers-msc.netlify.app" target='_blank'><i className='bx bx-link-alt'></i></a>
+                </button>
+                <button>
+                  <a href="https://github.com/marksc26/product-page.git" target='_blank'><i className='bx bxl-github'></i></a>
+                </button>
+              </div>
+            </div>
+          </div>
           <div data-aos='fade-up'>
             <div className='image-container'>
               <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={blogr} alt="" />
