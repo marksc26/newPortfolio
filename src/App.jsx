@@ -14,6 +14,7 @@ import msdb from '../src/assets/images/msdb.jpg'
 import room from '../src/assets/images/room.jpg'
 import blogr from '../src/assets/images/blogr.jpg'
 import sneakers from '../src/assets/images/sneakers.jpg'
+import lpdv from '../src/assets/images/lpdv.jpg'
 import logoDark from '../src/assets/LOGO_BNC.png'
 import logoLight from '../src/assets/LOGO_CLR.png'
 import iconDark from '../src/assets/ICONO_BN-01.png'
@@ -242,6 +243,24 @@ function App() {
           <h3 className='projects-title' >Projects</h3>
         </div>
         <div className='projects-container'>
+          <div data-aos='fade-up'>
+            <div className='image-container'>
+              <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={lpdv} alt="" />
+            </div>
+
+            <div className='info-container'>
+              <h3>La Parrilla de Vick</h3>
+              <div className='links-container'>
+                <button>
+                  <a href="https://laparrilladevick.com/" target='_blank'><i className='bx bx-link-alt'></i></a>
+                </button>
+                <button>
+                  <a href="https://github.com/marksc26/La-Parrilla-de-Vick.git" target='_blank'><i className='bx bxl-github'></i></a>
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div data-aos='fade-up'>
             <div className='image-container'>
               <img className={!darkMode ? 'image-project' : 'image-project-dark'} src={sneakers} alt="" />
